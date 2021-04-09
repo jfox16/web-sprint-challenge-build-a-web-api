@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', validateActionId, (req, res) => {
-  res.status(200).json(req.user);
+  res.status(200).json(req.action);
 });
 
 router.post('/', validateActionBody, (req, res) => {
@@ -22,13 +22,13 @@ router.post('/', validateActionBody, (req, res) => {
 });
 
 router.put('/:id', validateActionId, validateActionBody, (req, res) => {
-  Actions.update(req.user.id, req.body)
+  Actions.update(req.action.id, req.body)
     .then(action => res.status(200).json(action))
     .catch(err => res.status(500).json({ message: err.message }));
 });
 
 router.delete('/:id', validateActionId, (req, res) => {
-  Actions.remove(req.user.id)
+  Actions.remove(req.action.id)
     .then(numDeleted => res.status(200).json(numDeleted))
     .catch(err => res.status(500).json({ message: err.message }));
 });

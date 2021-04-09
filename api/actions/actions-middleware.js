@@ -4,9 +4,9 @@ const Projects = require('../projects/projects-model');
 
 const validateActionId = (req, res, next) => {
   Actions.get(req.params.id)
-    .then(user => {
-      if (user) {
-        req.user = user;
+    .then(action => {
+      if (action) {
+        req.action = action;
         next();
       }
       else {
