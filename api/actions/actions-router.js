@@ -28,8 +28,8 @@ router.put('/:id', validateActionId, validateActionBody, (req, res) => {
 });
 
 router.delete('/:id', validateActionId, (req, res) => {
-  Actions.put(req.user.id)
-    .then(action => res.status(200).json(action))
+  Actions.remove(req.user.id)
+    .then(numDeleted => res.status(200).json(numDeleted))
     .catch(err => res.status(500).json({ message: err.message }));
 });
 

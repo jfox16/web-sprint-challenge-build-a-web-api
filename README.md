@@ -140,7 +140,24 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
-1. The basic principles of the REST architectural style.
-1. Understand and explain the use of Express Routers.
-1. Describe tooling used to manually test the correctness of an API.
+   
+  - Node.js provides an environment to run JavaScript. It provides features like asynchronous operations, fast execution, high scalability with the event mechanism, and NPM which makes it very easy to use packages.
+  - Express is a framework for Node.js that simplifies the process of designing and building web applications with JavaScript. 
+
+2. Understand and explain the use of Middleware.
+
+  - Middleware are functions that can be used to add functionality to our basic REST methods. They are especially useful because they can be used modularly; different methods can chain together middleware for custom functions.
+
+3. The basic principles of the REST architectural style.
+
+  - Web resources must provide its web resources in a textual representation
+  - Web requests must be stateless operations; the same request will always be handled the same way.
+  - Use the same set of operations: GET, POST, PUT, DELETE, and some others
+
+4. Understand and explain the use of Express Routers.
+
+  - Routers handle how the server responds to requests to specific endpoints. They allow us to organize our code into sections that only deal with one specific endpoint.
+
+5. Describe tooling used to manually test the correctness of an API.
+  
+  - There are tools that send HTTP requests for us without having to build a full app. The one I've been using is called Postman. It's useful for quickly testing and observing all the results of an API.
