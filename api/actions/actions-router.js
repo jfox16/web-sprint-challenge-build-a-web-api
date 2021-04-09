@@ -17,7 +17,7 @@ router.get('/:id', validateActionId, (req, res) => {
 
 router.post('/', validateActionBody, (req, res) => {
   Actions.insert(req.body)
-    .then(action => res.status(201).json(action))
+    .then(action => res.status(201).json(action.id))
     .catch(err => res.status(500).json({ message: err.message }));
 });
 

@@ -18,7 +18,17 @@ const validateProjectId = (req, res, next) => {
 
 const validateProjectBody = async (req, res, next) => {
   const project = req.body;
-}
+
+  if (!project) {
+    res.status(400).json({
+      message: 'Request body is required.'
+    });
+  }
+  else if (req.method === 'POST' && 
+    (!action.project_id || !action.description || !action.notes)
+  ) {
+    
+  }
 
 module.exports = {
   validateProjectId,
