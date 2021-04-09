@@ -15,4 +15,10 @@ router.get('/:id', validateProjectId, (req, res) => {
   res.status(200).json(req.project);
 });
 
+router.post('/', validateProjectBody, (req, res) => {
+  Projects.insert(req.body)
+    .then(project => res.status(201).json(project))
+    .catch(err => res.status(500).json({ message: err.message }));
+});
+
 module.exports = router;

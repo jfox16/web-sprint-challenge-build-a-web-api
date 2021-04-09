@@ -28,7 +28,7 @@ const validateProjectBody = async (req, res, next) => {
     (!project.name || !project.description)
   ) {
     res.status(400).json({
-      message: 'name and description are required fields.'
+      message: 'name and description are required.'
     });
   }
   else if (project.id !== undefined) {
