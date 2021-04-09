@@ -25,10 +25,21 @@ const validateProjectBody = async (req, res, next) => {
     });
   }
   else if (req.method === 'POST' && 
-    (!action.project_id || !action.description || !action.notes)
+    (!project.name || !project.description)
   ) {
-    
+    res.status(400).json({
+      message: 'name and description are required fields.'
+    });
   }
+  else if (project.id !== undefined) {
+    res.status(400).json({
+      message: 'Cannot set id.'
+    });
+  }
+  else {
+    next();
+  }
+}
 
 module.exports = {
   validateProjectId,
