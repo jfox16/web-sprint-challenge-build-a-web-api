@@ -25,6 +25,7 @@ const validateActionBody = async (req, res, next) => {
     req.method === "POST" &&
     (!action.project_id || !action.description || !action.notes)
   ) {
+    // These fields are only required on POSTs
     res.status(400).json({
       message: "project_id, description, and notes are required fields.",
     });

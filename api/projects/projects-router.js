@@ -35,4 +35,10 @@ router.delete("/:id", validateProjectId, (req, res) => {
     .catch((err) => res.status(500).json({ message: err.message }));
 });
 
+router.get("/:id/actions", validateProjectId, (req, res) => {
+  Projects.getProjectActions(req.project.id)
+    .then((actions) => res.status(200).json(actions))
+    .catch((err) => res.status(500).json({ message: err.message }));
+});
+
 module.exports = router;

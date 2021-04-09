@@ -21,6 +21,7 @@ const validateProjectBody = async (req, res, next) => {
       message: "Request body is required.",
     });
   } else if (req.method === "POST" && (!project.name || !project.description)) {
+    // These fields are only required on POSTs
     res.status(400).json({
       message: "name and description are required.",
     });
