@@ -28,7 +28,7 @@ const validateActionBody = async (req, res, next) => {
     (!action.project_id || !action.description || !action.notes)
   ) {
     res.status(400).json({
-      message: 'project_id, description, and notes are required.'
+      message: 'project_id, description, and notes are required fields.'
     });
   }
   else if (action.description?.length > 128) {

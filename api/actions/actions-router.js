@@ -29,7 +29,7 @@ router.put('/:id', validateActionId, validateActionBody, (req, res) => {
 
 router.delete('/:id', validateActionId, (req, res) => {
   Actions.remove(req.action.id)
-    .then(() => res.status(200))
+    .then(() => res.status(204).end())
     .catch(err => res.status(500).json({ message: err.message }));
 });
 
