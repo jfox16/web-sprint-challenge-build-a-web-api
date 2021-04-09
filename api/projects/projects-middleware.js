@@ -1,5 +1,4 @@
 
-const Actions = require('../actions/actions-model');
 const Projects = require('./projects-model');
 
 const validateProjectId = (req, res, next) => {
@@ -34,6 +33,11 @@ const validateProjectBody = async (req, res, next) => {
   else if (project.id !== undefined) {
     res.status(400).json({
       message: 'Cannot set id.'
+    });
+  }
+  else if (project.actions !== undefined) {
+    res.status(400).json({
+      message: 'Cannot directly set actions.'
     });
   }
   else {

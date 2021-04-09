@@ -12,12 +12,18 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', validateProjectId, (req, res) => {
-  res.status(200).json(req.project);
+  res.status(200).json(req.project.id);
 });
 
 router.post('/', validateProjectBody, (req, res) => {
   Projects.insert(req.body)
     .then(project => res.status(201).json(project))
+    .catch(err => res.status(500).json({ message: err.message }));
+});
+
+router.put('/:id', validateProjectId, validateProjectBody, (req, res) => {
+  Projects.update(req.project.id, req.body)
+    .then(project => res.status(200).json(project))
     .catch(err => res.status(500).json({ message: err.message }));
 });
 
